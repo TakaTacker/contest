@@ -1,0 +1,19 @@
+n,k = map(int,input().split())
+A = list(map(int,(input().split())))
+ 
+#1つの箱の中の数を数える
+cnt1=0
+for i in range(n):
+    for j in range(i,n):
+        if A[i]>A[j]:
+            cnt1+=1
+ 
+#2つの箱の大小を調べる
+B=A
+cnt2=0
+for i in range(n):
+    for j in range(n):
+        if B[i]>A[j]:
+            cnt2+=1
+ans = (cnt1*k + cnt2 * k*(k-1)//2)%(10**9+7)
+print(ans)
